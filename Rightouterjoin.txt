@@ -1,0 +1,29 @@
+A right outer join is a type of join operation used to combine rows from two or more tables based on a specified condition, and it includes all the rows from the right (second) table and matching rows from the left (first) table. 
+If there are no matching rows in the left table for a particular row in the right table, the result will still include the row from the right table, but the columns from the left table will contain NULL values.
+ 
+// Syntax 
+SELECT columns
+FROM right_table
+RIGHT JOIN left_table
+ON right_table.column = left_table.column;
+
+
+
+employee_id | employee_name | department_id
+-------------------------------------------
+1           | Alice         | 101
+2           | Bob           | 102
+3           | Carol         | 101
+
+
+
+department_id | department_name
+-------------------------------
+101           | HR
+103           | Finance
+
+
+SELECT employee_name, department_name
+FROM employees
+RIGHT JOIN departments
+ON employees.department_id = departments.department_id;
